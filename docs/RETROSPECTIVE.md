@@ -13,7 +13,7 @@
 
 **How I validated the AI-generated code.**
 1. I wrote the architecture note first, then checked the code against it and logged the deviations.
-2. I wrote tests from the spec, not from the code. Each §2.D requirement has named verifier tests.
+2. I wrote tests from the intended properties, not from the code. Each verifier determination has named tests.
 3. I added negative controls. A gullible approver must make the suite fail: blocked but flagged with the guard on, and non-compliant with the guard off.
 4. I mutation-tested the suite. Each of 24 injected bugs, such as `>=` for `>`, a disabled guard, or a verifier trusting the trace header, was caught by at least one test.
 5. Hand-tampered traces prove the verifier relies on events, not runtime flags.

@@ -89,14 +89,14 @@ def print_summary(summary: dict, out: Path, color: bool) -> None:
             example = v["agent_error_examples"][0]
             example = example if len(example) <= 160 else example[:157] + "..."
             print(c(f"    ! {v['agent_errors']} agent error(s), e.g. {example}", "33"))
-    print(c("* = extra edge case beyond the four required scenarios", "2"))
+    print(c("* = additional edge case", "2"))
     verdict = c("ALL EXPECTATIONS MET", "32;1") if summary["all_expectations_met"] else c("EXPECTATIONS NOT MET", "31;1")
     print(f"\n{verdict}   traces + verdicts written to {out}/")
 
 
 def cmd_list(_: argparse.Namespace) -> int:
     for s in SCENARIOS.values():
-        tag = "required" if s.required else "extra"
+        tag = "core" if s.required else "extra"
         print(f"{s.id:<26}[{tag:<8}] {s.conditions}  ->  {s.expected_result}")
     return 0
 

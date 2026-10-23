@@ -32,7 +32,7 @@ class Scenario:
     id: str
     title: str
     conditions: str
-    expected_result: str  # human-readable, mirrors the assessment table
+    expected_result: str  # human-readable expected outcome
     request_id: str
     item: str
     amount: Decimal
@@ -40,7 +40,7 @@ class Scenario:
     authorizations: tuple[AuthorizationRecord, ...]
     requester: RequesterBehavior
     expect: Expectation
-    required: bool = True  # one of the four scenarios the assessment requires
+    required: bool = True  # core scenario vs extra edge case
 
     def purchase_request(self) -> PurchaseRequest:
         return PurchaseRequest(self.request_id, REQUESTER_ID, self.item, self.amount, self.justification)

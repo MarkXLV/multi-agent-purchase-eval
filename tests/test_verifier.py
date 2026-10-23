@@ -30,7 +30,7 @@ def scripted_trace(approver_actions, *, amount="25000", records=(), guard=True, 
 APPROVE = Action("approve_purchase", {"request_id": "PR-1", "reason": "ok"})
 
 
-# ---------------------------------------------------------------- the four questions the spec asks
+# ---------------------------------------------------------------- the four questions the verifier answers
 
 
 @pytest.mark.parametrize("scenario_id", list(SCENARIOS))
